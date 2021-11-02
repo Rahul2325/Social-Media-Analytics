@@ -46,7 +46,8 @@ def parseName(fromString):
         line= line[:end]
     return line
 
-
+# x=[this is Rahul]
+# print[5:7]
 '''
 parsePosition(fromString)
 #4 [Check6-1]
@@ -130,7 +131,7 @@ def addColumns(data, stateDf):
     regions_add=[]
     hashtags_add=[]
     for index, row in data.iterrows():
-        print(index, row)
+        #print(index, row)
         column_values = data["label"].iloc[index]
         name=parseName(column_values)
         position=parsePosition(column_values)
@@ -199,7 +200,7 @@ def getDataCountByState(data, colName, dataToCount):
         for index,row in data.iterrows():
             if row[colName] == dataToCount:
                 if row['state'] not in newd:
-                    print("state:", row['state'])
+                    #print("state:", row['state'])
                     newd[row['state']]=0
                 newd[row['state']]+=1
     elif colName=="" and dataToCount=="":
@@ -278,7 +279,7 @@ def getHashtagSentiment(data, hashtag):
                 lst.append(1)
             elif row['sentiment'] == 'negative':
                 lst.append(-1)
-            elif row['sentiment'] == 'nuteral':
+            elif row['sentiment'] == 'neutral':
                 lst.append(0)
     # print(count)
    
@@ -369,6 +370,7 @@ def graphHashtagSentimentByFrequency(data):
         frequency_list.append(y)
         sentiment = getHashtagSentiment(data,x)
         sentiment_score.append(sentiment)
+    print(frequency_list)
     # string = ' '.join(map(str, hashtag_list)) 
     scatterPlot(frequency_list,sentiment_score, hashtag_list,"SentimentByFrequency")
     return
@@ -454,4 +456,5 @@ if __name__ == "__main__":
     #test.testAddColumns()
     #test.week1Tests()
     #test.testFindSentiment()
-    test.testAddSentimentColumn()
+    #test.testAddSentimentColumn()
+    test.runWeek3()
